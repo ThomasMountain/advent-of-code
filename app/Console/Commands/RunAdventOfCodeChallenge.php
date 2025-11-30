@@ -12,9 +12,7 @@ class RunAdventOfCodeChallenge extends Command
 {
     protected $signature = 'run {day?} {year?}';
 
-    protected $description = 'Command description';
-
-    // app/Console/Commands/AocCommand.php
+    protected $description = 'Runs the advent of code challenge for a specified date';
 
     public function handle(): void
     {
