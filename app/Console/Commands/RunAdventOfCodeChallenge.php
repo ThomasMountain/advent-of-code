@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class RunAdventOfCodeChallenge extends Command
 {
-    protected $signature = 'run {day?} {year?}';
+    protected $signature = 'run {day?} {year?} {--sample}';
 
     protected $description = 'Runs the advent of code challenge for a specified date';
 
@@ -33,7 +33,7 @@ class RunAdventOfCodeChallenge extends Command
             /** @var BaseChallenge $challenge */
             $challenge = app($challengeClassName);
 
-            $input = $challenge->getInput($day);
+            $input = $this->option('sample') ? $challenge->getSampleInput($day, $year) : $challenge->getInput($day, $year);
 
             $this->info("--- Running Advent of Code {$year} Day {$day} ---");
 
