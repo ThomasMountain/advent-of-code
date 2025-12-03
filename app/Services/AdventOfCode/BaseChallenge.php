@@ -20,4 +20,9 @@ abstract class BaseChallenge
     {
         return array_map(fn($line) => str_replace("\r", '', $line), explode("\n", $input));
     }
+
+    public function getCsv(string $input): array
+    {
+        return str_getcsv($input);
+    }
 }
