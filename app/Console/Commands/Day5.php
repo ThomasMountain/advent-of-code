@@ -97,7 +97,7 @@ class Day5 extends Command
             $middleNumber = $fixedOrder[$middleIndex];
 
             // Add the middle number to the total
-            $total += (int)$middleNumber;
+            $total += (int) $middleNumber;
         }
 
         return $total;
@@ -151,5 +151,4 @@ class Day5 extends Command
 
         return $order; // Return the fixed order
     }
-
 }

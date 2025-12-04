@@ -15,17 +15,17 @@ class Day4 extends Command
     {
         $this->input = 'iwrupvqb';
 
-        $this->info("Step 1 Result: " . $this->step1());
-        $this->info("Step 1 Result: " . $this->step2());
+        $this->info('Step 1 Result: '.$this->step1());
+        $this->info('Step 1 Result: '.$this->step2());
     }
 
     public function step1(): int
     {
         $number = 0;
-        while(true) {
-            $string = $this->input . $number;
+        while (true) {
+            $string = $this->input.$number;
 
-            if(Str::startsWith(md5($string), "00000")){
+            if (Str::startsWith(md5($string), '00000')) {
                 return $number;
             }
 
@@ -36,15 +36,14 @@ class Day4 extends Command
     public function step2()
     {
         $number = 0;
-        while(true) {
-            $string = $this->input . $number;
+        while (true) {
+            $string = $this->input.$number;
 
-            if(Str::startsWith(md5($string), "000000")){
+            if (Str::startsWith(md5($string), '000000')) {
                 return $number;
             }
 
             $number++;
         }
     }
-
 }

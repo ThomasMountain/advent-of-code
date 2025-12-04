@@ -3,9 +3,7 @@
 namespace App\Console\Commands\Y2015;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class Day2 extends Command
 {
@@ -20,13 +18,13 @@ class Day2 extends Command
      */
     public function handle(): void
     {
-        $this->info("Starting processing day " . self::DAY_NUMBER);
+        $this->info('Starting processing day '.self::DAY_NUMBER);
         $startTime = now();
         $input = Storage::get('input/2015/day'.self::DAY_NUMBER.'.txt');
 
-        $this->info("Step 1: " . $this->step1($input));
-        $this->info("Step 2: " . $this->step2($input));
-        $this->info("Finished processing day ".self::DAY_NUMBER." in " . $startTime->diffInSeconds(now()) . " seconds");
+        $this->info('Step 1: '.$this->step1($input));
+        $this->info('Step 2: '.$this->step2($input));
+        $this->info('Finished processing day '.self::DAY_NUMBER.' in '.$startTime->diffInSeconds(now()).' seconds');
     }
 
     public function step1(string $input): int
@@ -45,6 +43,7 @@ class Day2 extends Command
 
             $totalArea += $surfaceArea + $slack;
         }
+
         return $totalArea;
     }
 

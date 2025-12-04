@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class Day6 extends Command
 {
     const USES_SAMPLE = true;
+
     protected $signature = 'app:day6';
 
     protected $description = 'Command description';
@@ -17,19 +18,19 @@ class Day6 extends Command
     const DIRECTIONS = [
         '^' => [
             'y' => -1,
-            'x' => 0
+            'x' => 0,
         ],
         'v' => [
             'y' => 1,
-            'x' => 0
+            'x' => 0,
         ],
         '<' => [
             'y' => 0,
-            'x' => -1
+            'x' => -1,
         ],
         '>' => [
             'y' => 0,
-            'x' => 1
+            'x' => 1,
         ],
     ];
 
@@ -39,8 +40,8 @@ class Day6 extends Command
             self::USES_SAMPLE ? 'input/day-6-sample.txt' : 'input/day-6.txt',
         );
 
-        $this->info("Step 1: " . $this->step1());
-        $this->info("Step 2: " . $this->step2());
+        $this->info('Step 1: '.$this->step1());
+        $this->info('Step 2: '.$this->step2());
     }
 
     public function step1(): int
@@ -49,11 +50,12 @@ class Day6 extends Command
 
         foreach ($this->grid as $key => $row) {
             foreach ($row as $subKey => $column) {
-                if(in_array($this->grid[$key][$subKey], $directions)){
+                if (in_array($this->grid[$key][$subKey], $directions)) {
                     dd($key, $subKey, $column);
-                };
+                }
             }
         }
+
         return 0;
     }
 
@@ -61,7 +63,6 @@ class Day6 extends Command
     {
         return 0;
     }
-
 
     private function loadGridFromFile($filePath): array
     {

@@ -17,13 +17,13 @@ class Day1 extends Command
      */
     public function handle(): void
     {
-        $this->info("Starting processing day 1");
+        $this->info('Starting processing day 1');
         $startTime = now();
         $input = Storage::get('input/2015/day1.txt');
 
-        $this->info("Step 1: " . $this->step1($input));
-        $this->info("Step 2: " . $this->step2($input));
-        $this->info("Finished processing day 1 in " . $startTime->diffInSeconds(now()) . " seconds");
+        $this->info('Step 1: '.$this->step1($input));
+        $this->info('Step 2: '.$this->step2($input));
+        $this->info('Finished processing day 1 in '.$startTime->diffInSeconds(now()).' seconds');
     }
 
     public function step1(string $input): int
@@ -31,7 +31,7 @@ class Day1 extends Command
         $openBracket = Str::substrCount($input, '(');
         $closeBracket = Str::substrCount($input, ')');
 
-        return ($openBracket - $closeBracket);
+        return $openBracket - $closeBracket;
     }
 
     public function step2(string $input): int
