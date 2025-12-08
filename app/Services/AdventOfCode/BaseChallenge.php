@@ -2,6 +2,7 @@
 
 namespace App\Services\AdventOfCode;
 
+use App\Grid;
 use Illuminate\Support\Facades\Storage;
 
 abstract class BaseChallenge
@@ -22,24 +23,14 @@ abstract class BaseChallenge
         return array_filter($linesArray, fn($line) => $line !== "");
     }
 
-    public function getLinesIncludingBlanks(string $input): array
+    public function parseGrid(string $input): Grid
     {
-        return array_map(fn($line) => str_replace("\r", '', $line), explode("\n", $input));
+        return Grid::fromInput($input);
     }
 
     public function getCsv(string $input): array
     {
         return str_getcsv($input);
-    }
-
-    public function parseGrid(string $input): array
-    {
-        $lines = $this->getLines($input);
-        $grid = [];
-        foreach ($lines as $line) {
-            $grid[] = str_split($line);
-        }
-        return $grid;
     }
 
     public function getNeighbors(array $grid, int $row, int $col): array

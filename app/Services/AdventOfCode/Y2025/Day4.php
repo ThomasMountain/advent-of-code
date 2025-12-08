@@ -32,7 +32,6 @@ class Day4 extends BaseChallenge implements AdventChallenge
 
     public function handleStep2(string $input): mixed
     {
-        $total = 0;
         $totalRemoved = 0;
         $grid = $this->parseGrid($input);
 
@@ -52,7 +51,7 @@ class Day4 extends BaseChallenge implements AdventChallenge
                     }
                 }
             }
-            if($removedThisLoop === 0){
+            if ($removedThisLoop === 0) {
                 break;
             }
 
